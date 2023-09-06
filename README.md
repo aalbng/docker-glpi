@@ -92,7 +92,7 @@ version: "3.2"
 services:
 #MariaDB Container
   mariadb:
-    image: mariadb:10.7
+    image: mariadb:11.1.2
     container_name: mariadb
     hostname: mariadb
     volumes:
