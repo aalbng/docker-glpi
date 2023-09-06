@@ -1,7 +1,9 @@
 
 # Table of Contents
 - [Introduction](#introduction)
-  - [Default accounts](#default-accounts)
+  - [Remove install directory](#remove-install-directory)
+  - [Default DB accounts](#default-db-accounts)
+  - [Default GLPI accounts](#default-glpi-accounts)
 - [Deploy with CLI](#deploy-with-cli)
   - [Deploy GLPI](#deploy-glpi)
   - [Deploy GLPI with external database](#deploy-glpi-with-external-database)
@@ -15,7 +17,12 @@
 Install, update and run an GLPI instance with docker
 PHP 8.2 / httpd OS latest / GLPI 10.0.9
 
-## Default accounts
+## Default DB accounts
+| Login/Password     	| DB                	| SQL Server        	|
+|--------------------	|-------------------	|-------------------	|
+| root/glpi          	| glpi              	| mariadb           	|
+
+## Default GLPI accounts
 
 More info in the 📄[Docs](https://glpi-install.readthedocs.io/en/latest/install/wizard.html#end-of-installation)
 
@@ -25,6 +32,12 @@ More info in the 📄[Docs](https://glpi-install.readthedocs.io/en/latest/instal
 | tech/tech          	| technical account 	|
 | normal/normal      	| "normal" account  	|
 | post-only/postonly 	| post-only account 	|
+
+## Remove install directory
+To remove the banner warning you have to remove the gpli install directory with the following command. (After gplpi setup wizard!)
+```sh
+docker exec -it glpi /removeInstall.sh
+```
 
 # Deploy with CLI
 
@@ -87,6 +100,9 @@ services:
 
 ```yaml
 
+volumes:
+  mysql:
+  glpi:
 
 services:
 #MariaDB Container

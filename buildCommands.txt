@@ -1,0 +1,9 @@
+# Build:
+docker build -t aalbng/glpi:latest . 
+docker push aalbng/glpi:latest
+docker tag aalbng/glpi:latest aalbng/glpi:10 
+docker push aalbng/glpi:10
+docker tag aalbng/glpi:latest aalbng/glpi:10.0.9
+docker push aalbng/glpi:10.0.9
+
+
