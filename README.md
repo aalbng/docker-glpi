@@ -60,7 +60,6 @@ docker run --link mariadb:mariadb -e TZ=Europe/Berlin -p 80:80 --name glpi --vol
 
 ## Deploy without persistence data
 ```yaml
-version: "3.8"
 
 services:
 #MariaDB Container
@@ -87,7 +86,7 @@ services:
 ## Deploy with persistence data
 
 ```yaml
-version: "3.2"
+
 
 services:
 #MariaDB Container
