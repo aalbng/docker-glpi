@@ -7,7 +7,7 @@
   - [Deploy GLPI with external database](#deploy-glpi-with-external-database)
   - [Deploy GLPI with database and persistence data](#deploy-glpi-with-database-and-persistence-data)
 - [Deploy with docker-compose](#deploy-with-docker-compose)
-  - [Deploy without persistence data ( for quickly test )](#deploy-without-persistence-data--for-quickly-test-)
+  - [Deploy without persistence data](#deploy-without-persistence-data)
   - [Deploy with persistence data](#deploy-with-persistence-data)
 
 # Introduction
@@ -58,7 +58,7 @@ docker run --link mariadb:mariadb -e TZ=Europe/Berlin -p 80:80 --name glpi --vol
 
 # Deploy with docker-compose
 
-## Deploy without persistence data ( quick and dirty )
+## Deploy without persistence data
 ```yaml
 version: "3.8"
 
