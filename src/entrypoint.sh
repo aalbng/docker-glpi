@@ -16,6 +16,16 @@ echo "[Date]" > /etc/php.d/50-timezone.ini && echo "date.timezone="$TZ >> /etc/p
 ln -sf /proc/self/fd/1 /var/log/httpd/access_log && \
     ln -sf /proc/self/fd/1 /var/log/httpd/error_log
 
+#Reconfigure php configs
+sed -i 's/;opcache.memory_consumption\s*=.*/opcache.memory_consumption=512/g' /etc/php.d/10-opcache.ini
+sed -i 's/memory_limit\s*=.*/memory_limit = 1024M/g' /etc/php.ini
+sed -i 's/upload_max_filesize\s*=.*/upload_max_filesize = 2048M/g' /etc/php.ini
+sed -i 's/session.gc_maxlifetime\s*=.*/session.gc_maxlifetime = 2592000/g' /etc/php.ini
+sed -i 's/session.cookie_lifetime\s*=.*/session.cookie_lifetime = 2592000/g' /etc/php.ini
+sed -i 's/max_execution_time\s*=.*/max_execution_time = 300/g' /etc/php.ini
+sed -i 's/max_input_time\s*=.*/max_input_time = 600/g' /etc/php.ini
+
+
 #Setup GLPI
 #Create folder structure
 mkdir -p ${GLPI_FOLDER_WEB} ${GLPI_FOLDER_SRC} ${GLPI_FOLDER_MIG}
