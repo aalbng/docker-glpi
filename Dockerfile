@@ -1,6 +1,6 @@
 FROM almalinux:9
 MAINTAINER Aalb-ng
-LABEL Build 2024-06-18 / PHP 8.2 / apache2 OS latest / GLPI 10.0.15
+LABEL Build 2025-03-14 / PHP 8.2 / apache2 OS latest / GLPI 10.0.18
 
 #Variables needed for start upscript
 ARG TZ=Europe/Berlin
