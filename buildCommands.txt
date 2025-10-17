@@ -1,10 +1,10 @@
 # Build:
 docker build --no-cache -t aalbng/glpi:latest . 
 docker push aalbng/glpi:latest
-docker tag aalbng/glpi:latest aalbng/glpi:10 
-docker push aalbng/glpi:10
-docker tag aalbng/glpi:latest aalbng/glpi:10.0.18
-docker push aalbng/glpi:10.0.18
+docker tag aalbng/glpi:latest aalbng/glpi:11 
+docker push aalbng/glpi:11
+docker tag aalbng/glpi:latest aalbng/glpi:11.0.1
+docker push aalbng/glpi:11.0.1
 
 
 

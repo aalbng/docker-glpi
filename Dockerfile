@@ -1,10 +1,10 @@
 FROM almalinux:9
-MAINTAINER Aalb-ng
-LABEL Build 2025-03-14 / PHP 8.2 / apache2 OS latest / GLPI 10.0.18
+LABEL Author="Aalb-ng"
+LABEL Version="Build 2025-10-17 / PHP 8.2 / apache2 OS latest / GLPI 11.0.1"
 
 #Variables needed for start upscript
 ARG TZ=Europe/Berlin
-ENV TZ ${TZ}
+ENV TZ=${TZ}
 
 #Install epel repos / additional tools / nginx / php (https://wiki.crowncloud.net/?How_to_Install_PHP_8_2_in_AlmaLinux_8)
 RUN dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm \
@@ -18,7 +18,7 @@ RUN dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.n
 	&& dnf -y module reset php \
 	&& dnf -y module install php:remi-8.2 \
 	&& dnf -y install wget \
-	&& dnf -y install php php-fpm php-intl php-mysql php-curl php-gd php-ldap php-xml php-mbstring php-zip php-ldap \
+	&& dnf -y install php php-fpm php-intl php-mysql php-curl php-gd php-ldap php-xml php-mbstring php-zip php-ldap php-bcmath \
 	&& mkdir /run/php-fpm \
 	&& dnf -y update \
 	&& dnf clean all \
@@ -32,4 +32,4 @@ RUN chmod 755 ./entrypoint.sh \
 	&& chmod 755 ./removeInstall.sh \
 	&& chmod 644 /etc/crontab 
 
-CMD "./entrypoint.sh"
+CMD ["./entrypoint.sh", ""]
