@@ -1,14 +1,14 @@
-FROM almalinux:9
+FROM almalinux:10
 LABEL Author="Aalb-ng"
-LABEL Version="Build 2025-10-17 / PHP 8.2 / apache2 OS latest / GLPI 11.0.1"
+LABEL Version="Build 2026-16-11 / PHP 8.5 (PHP2Shell fixed) / apache2 OS latest / GLPI 12.0.2"
 
 #Variables needed for start upscript
 ARG TZ=Europe/Berlin
 ENV TZ=${TZ}
 
 #Install epel repos / additional tools / nginx / php (https://wiki.crowncloud.net/?How_to_Install_PHP_8_2_in_AlmaLinux_8)
-RUN dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm \
-	&& dnf -y install https://rpms.remirepo.net/enterprise/remi-release-9.rpm \
+RUN dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm \
+	&& dnf -y install https://rpms.remirepo.net/enterprise/remi-release-10.rpm \
 	&& dnf -y install yum-utils \
 	&& dnf -y install procps-ng \
 	&& dnf -y install jq \
@@ -16,7 +16,7 @@ RUN dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.n
 	&& dnf -y install supervisor \
 	&& dnf -y install httpd \
 	&& dnf -y module reset php \
-	&& dnf -y module install php:remi-8.2 \
+	&& dnf -y module install php:remi-8.5 \
 	&& dnf -y install wget \
 	&& dnf -y install php php-fpm php-intl php-mysql php-curl php-gd php-ldap php-xml php-mbstring php-zip php-ldap php-bcmath \
 	&& mkdir /run/php-fpm \
